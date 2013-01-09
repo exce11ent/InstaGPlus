@@ -7,6 +7,7 @@
 //
 
 #import "EXCollectionViewController.h"
+#import "GTMOAuth2ViewControllerTouch.h"
 
 @interface EXCollectionViewController ()
 
@@ -35,4 +36,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)userLogin:(id)sender {
+    
+    static NSString *const kKeychainItemName = @"OAuth2 Sample: Google+";
+    
+    NSString *kMyClientID = @"357404287133-i9m6ej3bij4g15msmo0n96m337num4dm.apps.googleusercontent.com";     // pre-assigned by service
+    NSString *kMyClientSecret = @"B2WFFHoO6hIalWihNBQLx-IE"; // pre-assigned by service
+    
+    NSString *scope = @"https://www.googleapis.com/auth/plus.me"; // scope for Google+ API
+    
+    GTMOAuth2ViewControllerTouch *viewController;
+    SEL finishedSel = @selector(viewController:finishedWithAuth:error:);
+    viewController = [[GTMOAuth2ViewControllerTouch alloc] initWithScope:scope
+                                                                 clientID:kMyClientID
+                                                             clientSecret:kMyClientSecret
+                                                         keychainItemName:kKeychainItemName
+                                                                 delegate:self
+                                                         finishedSelector:finishedSel];
+    
+    [[self navigationController] pushViewController:viewController
+                                           animated:YES];
+}
+
+- (void)viewController:(GTMOAuth2ViewControllerTouch *)viewController
+      finishedWithAuth:(GTMOAuth2Authentication *)auth
+                 error:(NSError *)error {
+    if (error != nil) {
+        // Authentication failed
+    } else {
+        // Authentication succeeded
+    }
+}
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface EXCollectionViewController : UICollectionViewController
+- (IBAction)userLogin:(id)sender;
 
 @end

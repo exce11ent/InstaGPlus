@@ -67,7 +67,15 @@
                             <outlet property="delegate" destination="Z6j-fA-qvU" id="WEl-HH-5ZC"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems>
+                        <barButtonItem title="Login" id="jYx-L8-e46">
+                            <connections>
+                                <action selector="userLogin:" destination="Z6j-fA-qvU" id="HJk-jw-NMR"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Photos" id="EoX-Yl-ueo"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3R8-lB-H0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
