@@ -38,10 +38,10 @@
 
 - (IBAction)userLogin:(id)sender {
     
-    static NSString *const kKeychainItemName = @"OAuth2 Sample: Google+";
+    static NSString *const kKeychainItemName = @"G+ Keychain";
     
     NSString *kMyClientID = @"357404287133-i9m6ej3bij4g15msmo0n96m337num4dm.apps.googleusercontent.com";     // pre-assigned by service
-    NSString *kMyClientSecret = @"B2WFFHoO6hIalWihNBQLx-IE"; // pre-assigned by service
+    NSString *kMyClientSecret = @"Tp7VvqSpBXxPChjmjpZyqI2L"; // pre-assigned by service
     
     NSString *scope = @"https://www.googleapis.com/auth/plus.me"; // scope for Google+ API
     
@@ -64,7 +64,7 @@
     if (error != nil) {
         // Authentication failed
     } else {
-        // Authentication succeeded
+        NSLog(@"Authentication succeeded");
     }
 }
 @end
