@@ -7,7 +7,6 @@
 //
 
 #import "EXCollectionViewController.h"
-#import "GTMOAuth2ViewControllerTouch.h"
 
 @interface EXCollectionViewController ()
 

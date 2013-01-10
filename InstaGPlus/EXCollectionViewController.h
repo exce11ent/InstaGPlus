@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GData.h"
+#import "GTMOAuth2ViewControllerTouch.h"
 
 @interface EXCollectionViewController : UICollectionViewController
 - (IBAction)userLogin:(id)sender;
