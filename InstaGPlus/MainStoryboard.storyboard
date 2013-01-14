@@ -33,32 +33,37 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="yCr-O3-fk1">
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U9A-oc-igX">
-                            <size key="itemSize" width="132" height="110"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="U9A-oc-igX">
+                            <size key="itemSize" width="136" height="133"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="6mD-ub-HNK" customClass="EXCollectionViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="132" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="136" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="132" height="110"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="136" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIq-rQ-h4Q"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="bIq-rQ-h4Q">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="103" id="HS6-4P-3XL"/>
+                                                <constraint firstAttribute="height" constant="108" id="Lah-8X-lja"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="bIq-rQ-h4Q" firstAttribute="trailing" secondItem="6mD-ub-HNK" secondAttribute="trailing" type="default" id="1ls-Ka-Ksr"/>
-                                    <constraint firstItem="bIq-rQ-h4Q" firstAttribute="leading" secondItem="6mD-ub-HNK" secondAttribute="leading" type="default" id="FH2-Pr-hlN"/>
-                                    <constraint firstItem="bIq-rQ-h4Q" firstAttribute="top" secondItem="6mD-ub-HNK" secondAttribute="top" type="default" id="ZkS-iT-Xjm"/>
-                                    <constraint firstItem="bIq-rQ-h4Q" firstAttribute="bottom" secondItem="6mD-ub-HNK" secondAttribute="bottom" type="default" id="rdD-42-deH"/>
+                                    <constraint firstItem="bIq-rQ-h4Q" firstAttribute="centerX" secondItem="6mD-ub-HNK" secondAttribute="centerX" type="default" id="2iM-1p-Iny"/>
+                                    <constraint firstItem="bIq-rQ-h4Q" firstAttribute="top" secondItem="6mD-ub-HNK" secondAttribute="top" constant="13" id="czv-8M-eHV"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="currentImage" destination="bIq-rQ-h4Q" id="Ntx-FB-p3M"/>
+                                    <segue destination="Nic-iM-MBl" kind="push" identifier="showPhotoForFiltering" id="pPp-nv-Csy"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -68,7 +73,7 @@
                         </connections>
                     </collectionView>
                     <toolbarItems>
-                        <barButtonItem title="Login" id="jYx-L8-e46">
+                        <barButtonItem title="Sign in" id="jYx-L8-e46">
                             <connections>
                                 <action selector="userLogin:" destination="Z6j-fA-qvU" id="HJk-jw-NMR"/>
                             </connections>
@@ -79,9 +84,55 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3R8-lB-H0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566" y="39"/>
+            <point key="canvasLocation" x="581" y="39"/>
+        </scene>
+        <!--Photo For Filtering View Controller-->
+        <scene sceneID="hbc-D2-Z6p">
+            <objects>
+                <viewController id="Nic-iM-MBl" customClass="EXPhotoForFilteringViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qhq-kl-aUn">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="SG4-Sd-kZW">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SG4-Sd-kZW" firstAttribute="trailing" secondItem="Qhq-kl-aUn" secondAttribute="trailing" type="default" id="2qX-11-K69"/>
+                            <constraint firstItem="SG4-Sd-kZW" firstAttribute="top" secondItem="Qhq-kl-aUn" secondAttribute="top" type="default" id="BSm-lw-0ry"/>
+                            <constraint firstItem="SG4-Sd-kZW" firstAttribute="leading" secondItem="Qhq-kl-aUn" secondAttribute="leading" type="default" id="Bx5-iU-oNb"/>
+                            <constraint firstItem="SG4-Sd-kZW" firstAttribute="bottom" secondItem="Qhq-kl-aUn" secondAttribute="bottom" type="default" id="Fvx-Uq-XRQ"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Select filter" id="Uce-0J-mB7">
+                            <connections>
+                                <action selector="showFilters:" destination="Nic-iM-MBl" id="u31-UO-aJZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="lBb-Lk-j0M">
+                        <barButtonItem key="rightBarButtonItem" title="Save image" id="yo7-fj-3Pz">
+                            <connections>
+                                <action selector="saveImgeLocally:" destination="Nic-iM-MBl" id="P9i-KO-kRv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
+                    <connections>
+                        <outlet property="currentPhoto" destination="SG4-Sd-kZW" id="rnd-SE-9k7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o7I-2V-Wcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1098" y="39"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default.png" width="320" height="480"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

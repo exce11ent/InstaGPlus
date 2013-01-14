@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "GData.h"
 #import "GTMOAuth2ViewControllerTouch.h"
+#import "OADataManager.h"
 
-@interface EXCollectionViewController : UICollectionViewController
+@interface EXCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 - (IBAction)userLogin:(id)sender;
+
+@property NSMutableArray *internalLinks;
+
+- (void) onExtractedLinks:(NSNotification *)n;
 
 @end
